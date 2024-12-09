@@ -219,3 +219,9 @@ Las ramas se crearon con el fin de trabajar sin obstaculizar el trabajo de los d
 Primero se puede observar la rama en que se encuentra mediante el comando "git branch" esto listara las ramas que tengo en el repositorio y con un asterisco "*" se identificará la rama en la cual estoy actualmente.
 
 Para crear una nueva rama se puede hacer "git checkout -b name_branch" esto creará una nueva rama y se moverá a esa rama correspondiente por ejemplo al crear la rama "amin con el comando anterior y hacer git branch veremos que estamos en la rama amin y no main.
+
+Creamos un archivo test3.txt en practice y lo metemos al repositorio y esto significa que hemos metido cambios en la rama amin y no se mirarán en main. Por lo tanto para que todos los integrantes puedan ver esos cambios se debe unir la rama amin con la main mediante un merge o fusión con esto lograremos que tendremos la rama principal main con el contenido de la rama individual amin.
+
+Para ello volvemos a la rama que queremos guardar todo el contenido, en este caso main con el comando git checkout main o el comando git switch main. una vez estando en esa rama se hace un merge con git merge amin con esto indicaremos que gracias a un método de unificación Fast-forward los archivos modifcados se han agregado a la rama actual. Para asegurarnos de eso podemos hacer un git log para ver que los commits de la bitacora en main sean los esperados.
+
+Una buena práctica despues de unificar la rama principal con la individual, esta rama individual ya no tiene ningún sentido, esto quiere decir que esa rama ya no se necesita tener.
