@@ -195,3 +195,38 @@ Para sacar un archivo de la etapa de staging
 ```bash
 git rm --cached <file>
 ```
+
+## Eliminación de ramas
+
+### 1. Eliminar una rama local
+
+Elimina la rama local especificada de forma forzada, incluso si no ha sido fusionada.
+
+```bash
+git branch -D <branch>
+```  
+
+### 2. Eliminar una rama remota
+
+Elimina la rama remota especificada en el repositorio remoto.
+
+```bash
+git push origin --delete <branch>
+```  
+
+
+### 3. Eliminar una rama remota localmente
+
+Elimina las ramas remotas que ya no existen en el repositorio remoto.
+
+```bash
+git fetch -p
+```
+
+### 4. Eliminar una rama localmente sin forzar  
+
+Elimina una rama local solo si ha sido completamente fusionada con la rama principal.
+
+```bash
+git branch -d <branch>
+```  
