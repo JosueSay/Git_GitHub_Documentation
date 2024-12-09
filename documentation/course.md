@@ -91,62 +91,81 @@ git config --list
 
 Esto mostrará todas las configuraciones activas de Git en tu sistema.
 
-## Comandos básicos
+## 🛠️ Comandos Básicos
 
-Anteriormente se inicializó git con el comando:
+### 📂 Inicialización de Git
+
+En la sección anterior, inicializamos un repositorio de Git con el comando:
 
 ```bash
 git init
 ```
 
-Esto lo que hace es crear una carpeta oculta en el directoro donde se ejecutó el comando, para verla se puede ejecutar el comando:
+Este comando crea una carpeta oculta llamada `.git` en el directorio donde se ejecutó. Para visualizarla, puedes usar el siguiente comando:
 
 ```bash
 ls -a
 ```
 
-Esto lo que hará es mostrar carpetas ocultas y veremos la carpeta `.git`, esta carpeta guardará un registro detallado de todos los cambios realizados en los archivos.
+Este comando muestra todas las carpetas, incluidas las ocultas. Verás la carpeta **`.git`**, que es donde Git almacena un registro detallado de los cambios realizados en los archivos del proyecto.
 
-Para ello podemos probarlo creando una carpeta practice donde se almacenará la práctica de este curso y se creará un archivo test.txt escribiendo un hola mundo.
+### 📝 Creando Archivos para la Práctica
 
-Ahora que esos cambios fueron realizados hacemos el comando:
+1. Crea una carpeta llamada **`practice/`** para almacenar los ejercicios del curso.
+2. Dentro de esa carpeta, crea un archivo llamado **`test.txt`** y escribe "Hola Mundo" en él.
+
+Ahora que tienes nuevos archivos y cambios, verifica el estado del repositorio con:
+
 ```bash
 git status
 ```
 
-Esto dará una respuesta en terminal asi:
-```bash
-On branch main          # Rama Actual
+La terminal mostrará algo como esto:
 
-No commits yet          # No he realizado ningún commit
+```plaintext
+On branch main          # Rama actual
 
-Untracked files:        # Se crearon o modificaron estos archivos/carpetas
+No commits yet          # Aún no se han realizado commits
+
+Untracked files:        # Archivos/carpetas no rastreados
   (use "git add <file>..." to include in what will be committed)
         ../commands/
         ../documentation/
         ../images/
-        ./
+        ./practice/test.txt
 
-                        # Recomendación de comandos de git
+                        # Sugerencia de comandos
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Se puede hacer el comando para añadir los cambios:
-```bash
-git add .
-```
-```bash
-git add /ruta_archivo
-```
-Lo que hará el primer comando es añadir el todos los cambios al registro y el segundo lo hará por un archivo específico indicando la ruta de ese archivo y una vez hecho el comando podemos preguntar el status nuevamente y obtendremos esto:
+### ➕ Añadiendo Archivos al Área de Staging
+
+Para registrar los cambios, utiliza uno de los siguientes comandos:  
+
+- Para añadir **todos los cambios** del directorio:  
+  ```bash
+  git add .
+  ```
+
+- Para añadir un archivo específico:  
+  ```bash
+  git add <ruta_del_archivo>
+  ```
+
+Tras ejecutar estos comandos, verifica nuevamente el estado del repositorio:  
 
 ```bash
+git status
+```
+
+Deberías ver algo similar a esto:
+
+```plaintext
 On branch main
 
 No commits yet
 
-# Los archivos han sido registrados pero sin un commit
-Changes to be committed:
+Changes to be committed: # Archivos en el área de staging
   (use "git rm --cached <file>..." to unstage)
         new file:   commands/commands.md
         new file:   commands/commands.pdf
@@ -155,9 +174,48 @@ Changes to be committed:
         new file:   practice/test.txt
 ```
 
-Dentro de un proyecto se escribe $git add, los archivos pasan a la etapa de "Staging" es como un limbo luego puede suceder dos cosas, la primera es regresar como un archivo normal o la segunda con $git commit se puede ingresar al control de versiones de git
+### 🔄 Entendiendo el Área de Staging
+
+El área de **staging** es como un "limbo" donde los archivos esperan a ser confirmados con un commit o descartados.  
+
+#### Opciones:
+- **Retirar un archivo del área de staging:**  
+  ```bash
+  git rm --cached <file>
+  ```
+
+- **Confirmar los cambios con un commit:**  
+  ```bash
+  git commit -m "Mensaje descriptivo"
+  ```
+
+### 🔁 Flujo de Trabajo en Git
+
 ![Staging](../images/staging.png "Staging")
 
-En un mejor flujo en el directorio de trabajo se puede hacer "git add <file>" para mandarlo al área de staging y se puede regresar como archivo ordinario con git rm --cached <file> y si no se puede hacer git commit -m "mensaje" para mandarlo al repositorio de git
+En el flujo de trabajo típico:  
+1. **Directorio de trabajo:** Los archivos se editan aquí.  
+2. **Área de staging:** Los cambios se preparan con `git add`.  
+3. **Repositorio:** Los cambios se confirman con `git commit`.  
+
 ![Flow Git](../images/flow.png "Flow Git")
 
+### 🧾 Verificando el Historial de Cambios
+
+Para revisar el historial de commits y asegurarte de que todo está funcionando correctamente, usa:
+
+```bash
+git log
+```
+
+Esto mostrará una lista de los commits realizados, con detalles como el autor, la fecha y el mensaje del commit.
+
+## Ramas
+
+Las ramas se crearon con el fin de trabajar sin obstaculizar el trabajo de los demás.
+
+![Branch Git](branch.png "Branch Git")
+
+Primero se puede observar la rama en que se encuentra mediante el comando "git branch" esto listara las ramas que tengo en el repositorio y con un asterisco "*" se identificará la rama en la cual estoy actualmente.
+
+Para crear una nueva rama se puede hacer "git checkout -b name_branch" esto creará una nueva rama y se moverá a esa rama correspondiente por ejemplo al crear la rama "amin con el comando anterior y hacer git branch veremos que estamos en la rama amin y no main.
