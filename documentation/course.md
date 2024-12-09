@@ -158,6 +158,6 @@ Changes to be committed:
 Dentro de un proyecto se escribe $git add, los archivos pasan a la etapa de "Staging" es como un limbo luego puede suceder dos cosas, la primera es regresar como un archivo normal o la segunda con $git commit se puede ingresar al control de versiones de git
 ![Staging](../images/staging.png "Staging")
 
-En un mejor flujo
+En un mejor flujo en el directorio de trabajo se puede hacer "git add <file>" para mandarlo al área de staging y se puede regresar como archivo ordinario con git rm --cached <file> y si no se puede hacer git commit -m "mensaje" para mandarlo al repositorio de git
 ![Flow Git](../images/flow.png "Flow Git")
 

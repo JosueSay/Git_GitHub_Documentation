@@ -187,3 +187,11 @@ Si trabajas con múltiples claves SSH y quieres especificar cuál usar para un r
    ```bash
    ssh -T git@servidor.com
    ```
+
+## Staging
+
+Para sacar un archivo de la etapa de staging
+
+```bash
+git rm --cached <file>
+```
