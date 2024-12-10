@@ -419,3 +419,82 @@ El comando **`git reset`** permite mover el puntero de commits a un estado anter
 - **Manejo de conflictos entre ramas**: Si no puedes resolver un conflicto entre ramas, un **`git reset`** podría ser útil para regresar a un punto funcional del proyecto.
 
 > **Nota**: El uso de **`git reset --hard`** debe ser la última opción, ya que puede causar pérdida de trabajo si no se usa correctamente.
+
+## Gestipon de versiones con tag y checkout
+
+git tag
+
+esto se utiliza para agregar etiqueta a commit para identificarlo fácilmente en el futuro. es decir que ademas del mensaje del commit aparecerá un tag para identificar el commit utilizado comúnmente en versiones de software.
+
+
+primero hacemos un log y quiero colocar como una version 1 el último commit
+```bash
+commit dc6fff31021852d394873ff869dd9a8d682bedb0 (HEAD -> main)
+Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
+Date:   Mon Dec 9 12:37:13 2024 -0600
+
+    dc. documentacion sobre reset y revert
+```
+con el comando git tag -a v1.0 -m "Mi primera version"
+
+siendo estrictos cada commit lo ideal sería que debería de llevar un tag pero eso consume mucho trabajo del equipo, con el comando git tag puedo buscar en la lista de tags y no por logs, y a cada cierta cantidad de commits se coloca tags se puede buscar entre esas tags.
+
+
+git show <etiqueta> este comando dice información del commit con la etiqueta y demás datos del commit.
+
+los tags son como separadores de libros.
+
+para eliminar tas se puede usar git tag -d <etiqueta> y se puede eliminar el historial y no altera el historial de commit ni archivos, solo se quita la etiqueta.
+
+
+git checkout
+
+ademas de cambiar entre ramas se utiliza para evaluar cambios en una rama antes de integrarlo en main sin afectar la rama principal.
+
+por ejemplo con un log tenemos estos commit:
+```bash
+commit dc6fff31021852d394873ff869dd9a8d682bedb0 (HEAD -> main, tag: v1.0)
+Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
+Date:   Mon Dec 9 12:37:13 2024 -0600
+
+    dc. documentacion sobre reset y revert
+
+commit 8033ba076fc2c6655186bf482de10b81292f198e
+Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
+Date:   Mon Dec 9 11:14:02 2024 -0600
+
+    dc. Nueva documentacion actualizada
+```
+
+y quiero explorar el segundo commit sin tener que modificar el trabajo que estoy haciendo hago git checkout <hash>, esto hará que se está regresando o moviendose a ese identificador con una leyenda que dice que se puede deshacer esos cambios se pueden quitar escribiendo "git switch -c <new-branch-name>, pero revisando con un log podemos ver que regresamos a un punto del historial de commits pero miraremos que solo tenemos el identificardo "HEAD" sin la flecha con la palabra "main":
+
+
+esto indica que esta en una parte particular del historial pero no significa que ese sea el último commit, es decir solo se está explorando, entonces si se quiere hacer cambios se puede crear un archivo dentro del espacio de ese commit y para lo que se usa es utilizar ese commit y hacer pruebas en ese commit creando o probando archivos sin crear una nueva rama, una vez hecho las pruebas o lo que se hizo se puede regresar a la rama principal con un git checkout main y con un log miraremos que ya tenemos la flecha apuntado a main y con git branch miraremos que no hay ramas creadas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
