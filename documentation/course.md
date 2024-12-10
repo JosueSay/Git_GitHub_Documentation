@@ -528,6 +528,13 @@ git checkout main
 - **Git Tag:** Ideal para marcar puntos importantes en el historial de commits, como versiones de software.
 - **Git Checkout:** Útil para explorar y probar cambios en commits específicos sin afectar la rama principal.
 
+## Resolución de conflictos en Git
+
+Los conflictos salen acuando dos o mas desarrolladores modifican un mismo archivo y cuando se intenta hacer la fusión se entra en un conflicto de ramas, esto indica que al momento de intentar fusionar los cambios, estos cambios alteran los que yo hice y toca decidir cuales de los cambios se quedará en la rama principal.
+
+![Conflictor en Merge](../images/merge.png "Conflictor en Merge")
+
+primero creamos un archivo conflict.txt y colocamos un contenido y se agregan los cambios a git
 
 
 
