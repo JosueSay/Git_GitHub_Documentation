@@ -536,7 +536,9 @@ Los conflictos salen acuando dos o mas desarrolladores modifican un mismo archiv
 
 primero creamos un archivo conflict.txt y colocamos un contenido y se agregan los cambios a git
 
+ahora crearemos una nueva rama developer y creamos un cambio en el archivo txt y guardamos los cambios en el git
 
+regresamos a la rama main y creamos un cambio dentro del mismo archivo txt y se guardan los cambios en el git
 
 
 
