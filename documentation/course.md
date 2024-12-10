@@ -538,7 +538,40 @@ primero creamos un archivo conflict.txt y colocamos un contenido y se agregan lo
 
 ahora crearemos una nueva rama developer y creamos un cambio en el archivo txt y guardamos los cambios en el git
 
-regresamos a la rama main y creamos un cambio dentro del mismo archivo txt y se guardan los cambios en el git
+regresamos a la rama main y creamos un cambio dentro del mismo archivo txt y se guardan los cambios en el git y ahora vemos que el archivo conflict.txt tiene cambios de la rama principal y la rama  developer, hacemos un merge y aparece un conflicto:
+
+```bash
+$ git merge developer
+Auto-merging practice/conflict.txt
+CONFLICT (content): Merge conflict in practice/conflict.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+y cuando vamos a ver el archivo que esta en conflicto aparace esta señalización, en este caso el HEAD es el cambio desde main y developer es el cambio desde dicha rama local:
+```bash
+Línea originalo
+
+<<<<<<< HEAD
+segundo cambio desde main
+=======
+cambios desde la rama dev
+>>>>>>> developer
+```
+y lo que se puede hacer es decidir y quitar la sintaxis y decidir cual es el contenido que se queda y se va. una vez corregido hacemos un git status
+```bash
+$ git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   practice/conflict.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+veremos que aparece ambos modificados para el archivo conflict.txt entonces ahora guardamos los cambios en el git y luego hacemos merge nuevamente
 
 
 
