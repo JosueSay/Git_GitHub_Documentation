@@ -420,62 +420,113 @@ El comando **`git reset`** permite mover el puntero de commits a un estado anter
 
 > **Nota**: El uso de **`git reset --hard`** debe ser la última opción, ya que puede causar pérdida de trabajo si no se usa correctamente.
 
-## Gestipon de versiones con tag y checkout
+## Documentación Integrada: **Uso de Git Tag y Checkout**
 
-git tag
+### **Git Tag**
 
-esto se utiliza para agregar etiqueta a commit para identificarlo fácilmente en el futuro. es decir que ademas del mensaje del commit aparecerá un tag para identificar el commit utilizado comúnmente en versiones de software.
+El comando `git tag` se utiliza para asignar etiquetas a los commits, facilitando su identificación en el futuro. Las etiquetas son útiles para marcar versiones específicas de un proyecto o hitos importantes en el historial de commits.
 
+#### **Uso básico:**
 
-primero hacemos un log y quiero colocar como una version 1 el último commit
+1. **Crear una etiqueta:**
+   Para asignar una etiqueta a un commit reciente:
+   ```bash
+   git tag -a v1.0 -m "Mi primera versión"
+   ```
+   - `-a v1.0`: Crea una etiqueta con el nombre "v1.0".
+   - `-m "Mi primera versión"`: Mensaje descriptivo para la etiqueta.
+
+2. **Ver etiquetas existentes:**
+   ```bash
+   git tag
+   ```
+
+3. **Obtener detalles de una etiqueta:**
+   ```bash
+   git show <etiqueta>
+   ```
+   Muestra información del commit asociado, incluyendo autor, fecha y mensaje.
+
+4. **Eliminar una etiqueta:**
+   ```bash
+   git tag -d <etiqueta>
+   ```
+   Esto elimina la etiqueta localmente sin afectar el historial de commits.
+
+#### **Ejemplo práctico:**
+Si tienes el siguiente commit:
 ```bash
 commit dc6fff31021852d394873ff869dd9a8d682bedb0 (HEAD -> main)
 Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
 Date:   Mon Dec 9 12:37:13 2024 -0600
 
-    dc. documentacion sobre reset y revert
+    dc. documentación sobre reset y revert
 ```
-con el comando git tag -a v1.0 -m "Mi primera version"
-
-siendo estrictos cada commit lo ideal sería que debería de llevar un tag pero eso consume mucho trabajo del equipo, con el comando git tag puedo buscar en la lista de tags y no por logs, y a cada cierta cantidad de commits se coloca tags se puede buscar entre esas tags.
-
-
-git show <etiqueta> este comando dice información del commit con la etiqueta y demás datos del commit.
-
-los tags son como separadores de libros.
-
-para eliminar tas se puede usar git tag -d <etiqueta> y se puede eliminar el historial y no altera el historial de commit ni archivos, solo se quita la etiqueta.
-
-
-git checkout
-
-ademas de cambiar entre ramas se utiliza para evaluar cambios en una rama antes de integrarlo en main sin afectar la rama principal.
-
-por ejemplo con un log tenemos estos commit:
+Puedes etiquetarlo como "v1.0":
 ```bash
-commit dc6fff31021852d394873ff869dd9a8d682bedb0 (HEAD -> main, tag: v1.0)
+git tag -a v1.0 -m "Mi primera versión"
+```
+Esto permitirá identificar este commit fácilmente en el futuro.
+
+### **Git Checkout**
+
+El comando `git checkout` permite cambiar entre ramas o explorar un commit específico sin modificar la rama principal. Esto es útil para evaluar cambios o realizar pruebas en un punto específico del historial de commits.
+
+#### **Cambiar a un commit específico:**
+1. Identifica el hash del commit que deseas explorar usando:
+   ```bash
+   git log
+   ```
+2. Cambia a ese commit:
+   ```bash
+   git checkout <hash>
+   ```
+   Esto moverá tu `HEAD` al commit especificado. El estado será un "HEAD detached", indicando que estás en un estado de exploración.
+
+#### **Regresar a la rama principal:**
+Después de explorar, puedes volver al estado actual de la rama principal con:
+```bash
+git checkout main
+```
+
+#### **Ejemplo práctico:**
+Imagina este historial de commits:
+```bash
+commit f3e384197dec8e2f611d3fa79512aec484f020e9 (HEAD -> main)
+Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
+Date:   Mon Dec 9 21:15:25 2024 -0600
+
+    dc. pre documentación de checkout
+
+commit dc6fff31021852d394873ff869dd9a8d682bedb0 (tag: v1.0)
 Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
 Date:   Mon Dec 9 12:37:13 2024 -0600
 
-    dc. documentacion sobre reset y revert
-
-commit 8033ba076fc2c6655186bf482de10b81292f198e
-Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
-Date:   Mon Dec 9 11:14:02 2024 -0600
-
-    dc. Nueva documentacion actualizada
+    dc. documentación sobre reset y revert
+```
+Para explorar el segundo commit:
+```bash
+git checkout dc6fff31021852d394873ff869dd9a8d682bedb0
+```
+Esto mostrará:
+```bash
+HEAD detached at dc6fff3
+```
+Ahora puedes realizar pruebas en este estado. Una vez terminado, vuelve a la rama principal:
+```bash
+git checkout main
 ```
 
-y quiero explorar el segundo commit sin tener que modificar el trabajo que estoy haciendo hago git checkout <hash>, esto hará que se está regresando o moviendose a ese identificador con una leyenda que dice que se puede deshacer esos cambios se pueden quitar escribiendo "git switch -c <new-branch-name>, pero revisando con un log podemos ver que regresamos a un punto del historial de commits pero miraremos que solo tenemos el identificardo "HEAD" sin la flecha con la palabra "main":
+#### **Notas importantes:**
+- Los cambios realizados en el estado de `HEAD detached` no se reflejarán en ninguna rama, a menos que los guardes explícitamente.
+- Si deseas conservar los cambios, crea una nueva rama:
+  ```bash
+  git switch -c <nombre-nueva-rama>
+  ```
 
-
-esto indica que esta en una parte particular del historial pero no significa que ese sea el último commit, es decir solo se está explorando, entonces si se quiere hacer cambios se puede crear un archivo dentro del espacio de ese commit y para lo que se usa es utilizar ese commit y hacer pruebas en ese commit creando o probando archivos sin crear una nueva rama, una vez hecho las pruebas o lo que se hizo se puede regresar a la rama principal con un git checkout main y con un log miraremos que ya tenemos la flecha apuntado a main y con git branch miraremos que no hay ramas creadas.
-
-
-
-
-
-
+### **Conclusión:**
+- **Git Tag:** Ideal para marcar puntos importantes en el historial de commits, como versiones de software.
+- **Git Checkout:** Útil para explorar y probar cambios en commits específicos sin afectar la rama principal.
 
 
 
