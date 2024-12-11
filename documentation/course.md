@@ -925,23 +925,32 @@ La estrella es una forma de marcar tus repositorios favoritos en GitHub.
 
 ![Comandos de repositorios remotos](../images/remote_commands.png "Comandos de repositorios remotos")
 
-### Git Pull
+### Git Push
 
-Obtener el contenido actualizado del repositorio y actualizar el repositorio local.
+Subir el contenido del entorno local al entorno compartido.
 
 Usando tanto vs code se puede subir ese cambio sincronizando los cambios hechos una vez ya guardado los cambios en el entorno local
 ![Push VS Code](../images/push_vs_code.png "Push VS Code")
 
 También se puede usar el comando git push -u origin main, en este caso se utiliza -u para establecer que de ahora en adelante los nuevos push serán a la rama establecida como origin en ese comando y escribir solamente git push, sin embargo dado que existe una rama main en el repositorio remoto si se omite el -u origin main, git entenderá que los cambios se subiran a main, pero por seguridad se colcoa el comando completo.
 
-### Git Push
+### Git Pull
 
-Subir el contenido del entorno local al entorno compartido.
+Obtener el contenido actualizado del repositorio y actualizar el repositorio local.
 
 Podemos probar esto editando desde la web el readme y hacer el commit directamente desde la web:
 ![Web Commit](../images/web_commit.png "Web Commit")
 
-Dicho cambio ya está hecho en el entorno remoto pero no en el local
+Dicho cambio ya está hecho en el entorno remoto pero no en el local y en vs code se refleja con una flecha hacia abajo
+![Web Commit](../images/web_comit2.png "Web Commit")
+
+Pero se puede usar el comando desde la consola:
+
+git pull 
+
+este comando traera por defecto las actualizaciones desde la rama main.
+
+Algo para tener en cuenta es que no se puede hacer un push si el repositorio remoto no esta sincronizado con el local, es decir primero hacer un pull y luego el push.
 
 ### Git Fetch
 
