@@ -6,4 +6,4 @@ Contribución local para GitHub.
 
 Contribución remota desde GitHub.
 
-Contribución remota desde GitHub (probando fetch).
+Contribución remota desde GitHub (probando fetch2).
