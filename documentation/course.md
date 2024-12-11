@@ -780,6 +780,25 @@ En el repositorio encontrarás una rama principal llamada **main**. Para trabaja
 3. Una vez clonado, verás que el repositorio aparece como una carpeta en tu equipo. Dentro de esta carpeta, encontrarás archivos como el `README.md`.  
 4. Adicional se agrega una pagina para ver los [Planes de GitHub](https://github.com/pricing "Planes de GitHub") y comparar precios.
 
+### 🔗 Fusionar entorno local y remoto  
+
+Para unificar tu entorno local de Git con un repositorio remoto en GitHub, puedes usar el siguiente comando:  
+
+```bash
+git remote add origin <URL_DEL_REPOSITORIO_REMOTO>
+```  
+
+#### Pasos:  
+1. **Agregar el repositorio remoto:**  
+   Reemplaza `<URL_DEL_REPOSITORIO_REMOTO>` con la URL de tu repositorio en GitHub. Esto vincula tu repositorio local con el remoto.  
+
+2. **Verificar la conexión:**  
+   Usa el comando:  
+   ```bash
+   git remote -v
+   ```  
+   Esto mostrará las URLs configuradas para las conexiones remotas. Verifica que la URL listada coincida con la del repositorio remoto que quieres usar.  
+
 ## 🔐 Configuración de llaves SSH en GitHub  
 
 Configurar una llave SSH en GitHub permite que una computadora específica se conecte a tu cuenta sin necesidad de ingresar la contraseña en cada operación, facilitando el trabajo.  
@@ -900,6 +919,25 @@ La estrella es una forma de marcar tus repositorios favoritos en GitHub.
 2. Para ver todos tus repositorios marcados con estrella:  
    - Ve a tu perfil.  
    - Selecciona la opción **Your Stars** en el menú.  
+
+## Trabajar repositorios remotos
+
+
+![Comandos de repositorios remotos](../images/remote_commands.png "Comandos de repositorios remotos")
+
+### Git Pull
+
+Obtener el contenido actualizado del repositorio y actualizar el repositorio local
+
+
+### Git Push
+
+Subir el contenido del entorno local al entorno compartido.
+
+### Git Fetch
+
+
+
 
 
 
