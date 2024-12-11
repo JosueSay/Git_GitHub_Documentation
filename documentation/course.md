@@ -938,6 +938,11 @@ También se puede usar el comando git push -u origin main, en este caso se utili
 
 Subir el contenido del entorno local al entorno compartido.
 
+Podemos probar esto editando desde la web el readme y hacer el commit directamente desde la web:
+![Web Commit](../images/web_commit.png "Web Commit")
+
+Dicho cambio ya está hecho en el entorno remoto pero no en el local
+
 ### Git Fetch
 
 
