@@ -866,3 +866,40 @@ Hi JosueSay! You've successfully authenticated, but GitHub does not provide shel
 - 🔑 Genera llaves SSH para cada computadora que utilices.  
 - 🚫 **Nunca compartas tus llaves privadas.**  
 - 🎉 Ahora puedes clonar repositorios usando SSH.  
+
+
+## ⭐ Clone, Fork y Estrella en repositorios  
+
+Estos son botones comunes que encontrarás en los repositorios de otras cuentas en GitHub.  
+
+![Componentes](../images/components.png "Componentes")  
+
+---
+
+### 🍴 **Fork**  
+
+Un **fork** crea una copia de un repositorio de otra cuenta en tu propia cuenta.  
+
+#### Características clave:  
+- Una vez copiado en tu cuenta, el repositorio "forkeado" **queda congelado**.  
+- Si el repositorio original recibe actualizaciones, **no se reflejarán automáticamente** en tu copia.  
+- Permite trabajar en un proyecto sin alterar el repositorio original.  
+
+Esto lo diferencia de clonar un repositorio directamente, ya que el fork es una copia independiente en tu cuenta.  
+
+![Fork](../images/fork.png "Fork")  
+
+---
+
+### ⭐ **Estrella**  
+
+La estrella es una forma de marcar tus repositorios favoritos en GitHub.  
+
+#### Cómo utilizarla:  
+1. Haz clic en el botón **Star** en cualquier repositorio que quieras destacar.  
+2. Para ver todos tus repositorios marcados con estrella:  
+   - Ve a tu perfil.  
+   - Selecciona la opción **Your Stars** en el menú.  
+
+
+
