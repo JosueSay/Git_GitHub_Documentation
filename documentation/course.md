@@ -927,8 +927,12 @@ La estrella es una forma de marcar tus repositorios favoritos en GitHub.
 
 ### Git Pull
 
-Obtener el contenido actualizado del repositorio y actualizar el repositorio local
+Obtener el contenido actualizado del repositorio y actualizar el repositorio local.
 
+Usando tanto vs code se puede subir ese cambio sincronizando los cambios hechos una vez ya guardado los cambios en el entorno local
+![Push VS Code](../images/push_vs_code.png "Push VS Code")
+
+También se puede usar el comando git push -u origin main, en este caso se utiliza -u para establecer que de ahora en adelante los nuevos push serán a la rama establecida como origin en ese comando y escribir solamente git push, sin embargo dado que existe una rama main en el repositorio remoto si se omite el -u origin main, git entenderá que los cambios se subiran a main, pero por seguridad se colcoa el comando completo.
 
 ### Git Push
 
