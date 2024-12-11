@@ -942,7 +942,7 @@ Podemos probar esto editando desde la web el readme y hacer el commit directamen
 ![Web Commit](../images/web_commit.png "Web Commit")
 
 Dicho cambio ya está hecho en el entorno remoto pero no en el local y en vs code se refleja con una flecha hacia abajo
-![Web Commit](../images/web_comit2.png "Web Commit")
+![Web Commit](../images/web_commit2.png "Web Commit")
 
 Pero se puede usar el comando desde la consola:
 
@@ -954,8 +954,7 @@ Algo para tener en cuenta es que no se puede hacer un push si el repositorio rem
 
 ### Git Fetch
 
-
-
+Haciendo cambios nuevamente desde la web en el readme y volviendo a la consola se mira el estado con un git status para ver que no hayan cambios por subir y se coloca el comando git fetch origin esto tomará la rama por defecto para obtener los cambios con la diferencia con pull es que no fusiona los cambios inmediatamente, de esta manera se reciben los cambios y evaluar si se quieren recibir esos cambios y después aceptar.
 
 
 
