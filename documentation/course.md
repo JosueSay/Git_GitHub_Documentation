@@ -667,23 +667,116 @@ git branch -D developer
   git log
   ```
 
+## 🌐 GitHub  
+
+Existen distintas herramientas para alojar un control de versiones, como **Atlassian**, **GitLab**, etc., pero una herramienta clave es **GitHub**, lanzada en febrero de 2008. Dos años después, fue adquirida por **Microsoft**.  
+
+GitHub ha evolucionado considerablemente: inicialmente solo servía para alojar repositorios, pero ahora se ha transformado en un sitio web que funciona como una **red social para programadores**. Además, GitHub incorpora inteligencia artificial para construir, escalar y entregar código seguro bajo **cuatro pilares fundamentales** dentro de **GitHub Enterprise**:  
+
+### 🔑 **Pilares de GitHub Enterprise**  
+1. **🤖 Inteligencia Artificial:**  
+   Mejora la colaboración, la seguridad y la productividad en el desarrollo.  
+
+2. **🤝 Colaboración:**  
+   Acelera el trabajo en equipo y la entrega de proyectos.  
+
+3. **⚡ Productividad:**  
+   Automatiza tareas rutinarias, permitiendo que los desarrolladores se concentren en crear soluciones innovadoras.  
+
+4. **🔒 Seguridad y Escalabilidad:**  
+   Desde el principio, GitHub integra código seguro y adapta la plataforma para manejar un gran número de usuarios.  
+
+### 🚀 **Un espacio para contribuir**  
+GitHub permite contribuir de manera colaborativa al desarrollo de proyectos, como el **kernel de Linux**. Es una herramienta que fomenta la participación de la comunidad global en la construcción de software de alta calidad.  
 
 
+## 🧑‍💻 Creación y Configuración de una Cuenta en GitHub  
 
+GitHub es una herramienta poderosa para alojar y colaborar en proyectos de desarrollo. Aquí te mostramos cómo crear y configurar tu cuenta de manera segura:  
 
+### ✨ **Creación de la cuenta**  
+1. 🌐 **Accede a GitHub:** Ve a [github.com](https://github.com) y haz clic en **"Sign up"**.  
+2. 📧 **Correo electrónico:** Ingresa tu correo electrónico y selecciona **"Continuar"**.  
+3. 🔒 **Contraseña:** Crea una contraseña segura y presiona **"Continuar"**.  
+4. 🏷️ **Nombre de usuario:** Elige un nombre único y verifica su disponibilidad.  
+5. ✅ **Verificación humana:** Completa el captcha.  
+6. ✉️ **Código de verificación:** Recibirás un código en tu correo; introdúcelo en el sitio.  
+7. 📝 **Cuestionario:** Completa las preguntas sobre tu perfil para personalizar tu experiencia.  
+8. 💸 **Selecciona el tipo de cuenta:** Te recomendamos la opción **gratuita** para comenzar.  
 
+### 🛠️ **Configuración del perfil**  
+1. 🔧 Ve a **Settings** en tu perfil.  
+2. ✍️ Personaliza tu información, como nombre, biografía y enlaces.  
+3. 🔐 **Habilita la verificación en dos pasos** para mayor seguridad:  
+   - **Nunca uses SMS** como método de autenticación.  
 
+### 📱 **Configuración de la autenticación en dos pasos**  
+1. 📲 Descarga la aplicación de **GitHub** en tu teléfono o utiliza apps de autenticación como **Google Authenticator** o **Authy**.  
+2. 🔑 Ve a **"Settings" > "Password and Authentication"** en el sitio web de GitHub.  
+3. 📷 Haz clic en **"Habilitar autenticación en dos pasos"**.  
+4. 🖼️ Escanea el **código QR** mostrado en pantalla con tu aplicación de autenticación.  
+5. 🔢 Introduce el código generado por la aplicación para completar el proceso.  
+6. 🗂️ **Guarda los códigos de recuperación:**  
+   - GitHub proporcionará una lista de códigos de respaldo.  
+   - **Descárgalos y guárdalos** en un lugar seguro; estos te ayudarán a recuperar el acceso si pierdes tu dispositivo de autenticación.  
 
+## 🔗 Integración de Git y GitHub  
 
+Aunque **Git** y **GitHub** son herramientas diferentes, se pueden vincular para trabajar en equipo y gestionar proyectos de forma eficiente.  
 
+![Flow Git](../images/flow%20github.png "Flow Git")  
 
+---
 
+### 🛠️ **Crear un repositorio**  
 
+1. Ve a la opción del ícono de **"+"** en la parte superior derecha.  
+   ![Crear repositorio](../images/step1.png "Crear repositorio")  
 
+2. Llena el formulario para crear el repositorio:  
+   - **Nombre del repositorio.**  
+   - **Descripción:** Explica el propósito del proyecto.  
+   - **Visibilidad:** Selecciona si será **público** o **privado**.  
+   - **Inicializar con un README:** Recomendado para documentar el proyecto.  
+   - **GitIgnore:** Excluye archivos específicos según el lenguaje o herramienta.  
+   - **Licencia:** Define los permisos y restricciones de uso del código.  
 
+   ![Formulario crear repositorio](../images/step2.png "Formulario crear repositorio")  
 
+3. **Crear el repositorio:**  
+   Haz clic en el botón para finalizar la creación.  
 
+---
 
+### 👥 **Agregar colaboradores**  
 
+1. Ve a **"Settings"** en el repositorio.  
+2. En la sección de **"Collaborators"**, agrega personas como colaboradores (estas personas deben tener una cuenta de GitHub).  
+3. El colaborador recibirá una invitación que debe aceptar para poder colaborar en el proyecto.  
+
+   ![Colaboradores](../images/step3.png "Colaboradores")  
+
+---
+
+### 🌐 **Clonar el repositorio**  
+
+En el repositorio encontrarás una rama principal llamada **main**. Para trabajar localmente, puedes clonar el repositorio usando el botón **"Code"**, eligiendo entre tres opciones:  
+- 🌍 **HTTPS.**  
+- 🔒 **SSH.**  
+- 💻 **GitHub CLI.**  
+
+#### **Clonar usando HTTPS:**  
+1. Copia la URL proporcionada, por ejemplo:  
+   ```plaintext
+   https://github.com/JosueSay/GitDocumentation.git
+   ```  
+2. En la terminal, ejecuta el comando:  
+   ```bash
+   git clone <url>
+   ```  
+
+   ![Clonando repositorio](../images/step4.png "Clonando repositorio")  
+
+3. Una vez clonado, verás que el repositorio aparece como una carpeta en tu equipo. Dentro de esta carpeta, encontrarás archivos como el `README.md`.  
 
 
