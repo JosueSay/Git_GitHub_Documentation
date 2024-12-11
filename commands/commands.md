@@ -230,3 +230,11 @@ Elimina una rama local solo si ha sido completamente fusionada con la rama princ
 ```bash
 git branch -d <branch>
 ```  
+
+## Unificar historiales de un entorno local y remoto 
+
+Este comando se utiliza para unificar historiales en caso de conflicto con repositorios locales y un remoto.
+
+```bash
+git pull origin main --allow-unrelated-histories
+```
