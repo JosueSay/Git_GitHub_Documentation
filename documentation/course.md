@@ -9,6 +9,7 @@
 **Profesor:** amin Espinoza
 
 ## 🗂 Estructura del Repositorio
+
 ```bash
 Git & GitHub/
 ├── commands/               # Carpeta que contiene documentación sobre comandos de Git
@@ -142,12 +143,14 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Para registrar los cambios, utiliza uno de los siguientes comandos:  
 
-- Para añadir **todos los cambios** del directorio:  
+- Para añadir **todos los cambios** del directorio:
+
   ```bash
   git add .
   ```
 
-- Para añadir un archivo específico:  
+- Para añadir un archivo específico:
+
   ```bash
   git add <ruta_del_archivo>
   ```
@@ -178,13 +181,16 @@ Changes to be committed: # Archivos en el área de staging
 
 El área de **staging** es como un "limbo" donde los archivos esperan a ser confirmados con un commit o descartados.  
 
-#### Opciones:
-- **Retirar un archivo del área de staging:**  
+#### Opciones
+
+- **Retirar un archivo del área de staging:**
+
   ```bash
   git rm --cached <file>
   ```
 
-- **Confirmar los cambios con un commit:**  
+- **Confirmar los cambios con un commit:**
+
   ```bash
   git commit -m "Mensaje descriptivo"
   ```
@@ -193,8 +199,9 @@ El área de **staging** es como un "limbo" donde los archivos esperan a ser conf
 
 ![Staging](../images/staging.png "Staging")
 
-En el flujo de trabajo típico:  
-1. **Directorio de trabajo:** Los archivos se editan aquí.  
+En el flujo de trabajo típico:
+
+1. **Directorio de trabajo:** Los archivos se editan aquí.
 2. **Área de staging:** Los cambios se preparan con `git add`.  
 3. **Repositorio:** Los cambios se confirman con `git commit`.  
 
@@ -209,7 +216,6 @@ git log
 ```
 
 Esto mostrará una lista de los commits realizados, con detalles como el autor, la fecha y el mensaje del commit.
-
 
 ## 🌿 Ramas en Git
 
@@ -287,7 +293,7 @@ git branch -D josue
 
 Esto eliminará la rama **`josue`** de manera segura. El objetivo de las ramas es crearlas con un propósito específico y, una vez cumplido, eliminarlas para evitar conflictos en el futuro.
 
-#### 🔄 Ejemplo de Flujo de Trabajo con Ramas:
+#### 🔄 Ejemplo de Flujo de Trabajo con Ramas
 
 1. **Crear una nueva rama**:  
    `git checkout -b josue`
@@ -394,7 +400,7 @@ El comando **`git reset`** permite mover el puntero de commits a un estado anter
        dc. Nueva documentación actualizada
    ```
 
-#### Tipos de reset:
+#### Tipos de reset
 
 | **Comando**                      | **Puntero HEAD**             | **Área de Staging**                             | **Directorio de Trabajo**                          | **¿Qué se pierde?**                                                     |
 |-----------------------------------|------------------------------|-------------------------------------------------|---------------------------------------------------|-------------------------------------------------------------------------|
@@ -402,7 +408,8 @@ El comando **`git reset`** permite mover el puntero de commits a un estado anter
 | **`git reset --mixed <commit>`**  | Mueve a `<commit>`           | Los cambios posteriores se eliminan de staging.  | Los archivos se mantienen como están.             | Los commits posteriores, pero los cambios permanecen en el directorio de trabajo. Debes agregar los cambios a staging manualmente si quieres hacer commit de ellos. |
 | **`git reset --hard <commit>`**   | Mueve a `<commit>`           | El área de staging se limpia.                   | Los archivos se restauran al estado del commit.   | Los commits posteriores y los cambios no comprometidos se pierden completamente. |
 
-#### Resumen de los tipos de reset:
+#### Resumen de los tipos de reset
+
 - **`--soft`**: Mueve HEAD, conserva cambios en staging y en tu directorio de trabajo.
 - **`--mixed`**: Mueve HEAD, limpia staging, pero mantiene los archivos modificados en tu directorio de trabajo.
 - **`--hard`**: Mueve HEAD, limpia staging y elimina los cambios en el directorio de trabajo.
@@ -430,32 +437,39 @@ El comando `git tag` se utiliza para asignar etiquetas a los commits, facilitand
 
 1. **Crear una etiqueta:**  
    Para asignar una etiqueta a un commit reciente:
+
    ```bash
    git tag -a v1.0 -m "Mi primera versión"
    ```
+
    - `-a v1.0`: Crea una etiqueta con el nombre "v1.0".
    - `-m "Mi primera versión"`: Mensaje descriptivo para la etiqueta.
 
 2. **Ver etiquetas existentes:**  
    Muestra todas las etiquetas del repositorio:
+
    ```bash
    git tag
    ```
 
 3. **Obtener detalles de una etiqueta:**  
    Para ver información detallada del commit asociado a una etiqueta:
+
    ```bash
    git show <etiqueta>
    ```
 
 4. **Eliminar una etiqueta:**  
    Borra una etiqueta localmente sin afectar el historial:
+
    ```bash
    git tag -d <etiqueta>
    ```
 
-#### 📝 **Ejemplo práctico:**  
+#### 📝 **Ejemplo práctico:**
+
 Si tienes el siguiente commit:
+
 ```bash
 commit dc6fff31021852d394873ff869dd9a8d682bedb0 (HEAD -> main)
 Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
@@ -463,10 +477,13 @@ Date:   Mon Dec 9 12:37:13 2024 -0600
 
     dc. documentación sobre reset y revert
 ```
+
 Puedes etiquetarlo como "v1.0":
+
 ```bash
 git tag -a v1.0 -m "Mi primera versión"
 ```
+
 Esto permite identificar este commit fácilmente en el futuro al ejecutar `git tag`.
 
 ---
@@ -478,23 +495,31 @@ El comando `git checkout` permite cambiar entre **ramas** o explorar un **commit
 #### 🔍 **Cambiar a un commit específico:**
 
 1. **Identifica el hash del commit** que deseas explorar:
+
    ```bash
    git log
    ```
+
 2. **Cambia a ese commit:**
+
    ```bash
    git checkout <hash>
    ```
+
    Esto moverá tu `HEAD` al commit especificado, colocándote en un estado de **HEAD detached**.
 
-#### 🔙 **Regresar a la rama principal:**  
+#### 🔙 **Regresar a la rama principal:**
+
 Después de explorar, vuelve al estado actual de la rama principal con:
+
 ```bash
 git checkout main
 ```
 
-#### 💡 **Ejemplo práctico:**  
+#### 💡 **Ejemplo práctico:**
+
 Imagina este historial de commits:
+
 ```bash
 commit f3e384197dec8e2f611d3fa79512aec484f020e9 (HEAD -> main)
 Author: JosueSay <106031855+JosueSay@users.noreply.github.com>
@@ -508,27 +533,36 @@ Date:   Mon Dec 9 12:37:13 2024 -0600
 
     dc. documentación sobre reset y revert
 ```
+
 Para explorar el segundo commit:
+
 ```bash
 git checkout dc6fff31021852d394873ff869dd9a8d682bedb0
 ```
+
 Esto mostrará:
+
 ```bash
 HEAD detached at dc6fff3
 ```
+
 Puedes realizar pruebas en este estado. Una vez terminado, vuelve a la rama principal:
+
 ```bash
 git checkout main
 ```
 
 #### ⚠️ **Notas importantes:**
+
 - Los cambios realizados en el estado de **HEAD detached** no se reflejarán en ninguna rama, a menos que los guardes explícitamente.
 - Si deseas conservar los cambios, crea una nueva rama:
+
   ```bash
   git switch -c <nombre-nueva-rama>
   ```
 
 ### ✅ **Conclusión:**
+
 - **🏷️ Git Tag:** Ideal para marcar puntos importantes en el historial de commits, como versiones de software.
 - **🔄 Git Checkout:** Perfecto para explorar y probar cambios en commits específicos sin afectar la rama principal.
 
@@ -549,18 +583,24 @@ Los **conflictos** en Git ocurren cuando dos o más desarrolladores modifican el
    git commit -m "Agregar archivo conflict.txt"
    ```
 
-2. **Generar cambios en ramas distintas:**  
+2. **Generar cambios en ramas distintas:**
+
    - Creamos una nueva rama llamada **`developer`**:
+
      ```bash
      git checkout -b developer
      ```
+
    - Modificamos el archivo **`conflict.txt`**, añadimos y guardamos los cambios:
+
      ```bash
      echo "cambios desde la rama developer" >> practice/conflict.txt
      git add .
      git commit -m "Cambios desde developer"
      ```
+
    - Volvemos a la rama **`main`** y realizamos otros cambios en el mismo archivo:
+
      ```bash
      git checkout main
      echo "segundo cambio desde main" >> practice/conflict.txt
@@ -576,6 +616,7 @@ Los **conflictos** en Git ocurren cuando dos o más desarrolladores modifican el
    ```
 
    Resultado en la terminal:
+
    ```bash
    Auto-merging practice/conflict.txt
    CONFLICT (content): Merge conflict in practice/conflict.txt
@@ -629,6 +670,7 @@ git status
 ```
 
 Antes de resolver:
+
 ```txt
 On branch main
 You have unmerged paths.
@@ -641,6 +683,7 @@ Unmerged paths:
 ```
 
 Después de resolver:
+
 ```txt
 On branch main
 All conflicts fixed but you are still merging.
@@ -658,9 +701,11 @@ git branch -D developer
 ### 📝 Notas Adicionales
 
 - Si te sientes perdido durante el proceso de resolución, puedes **abortar el merge** con:
+
   ```bash
   git merge --abort
   ```
+
 - Usa `git log` para verificar que el último commit incluye los cambios fusionados de ambas ramas:
 
   ```bash
@@ -673,7 +718,8 @@ Existen distintas herramientas para alojar un control de versiones, como **Atlas
 
 GitHub ha evolucionado considerablemente: inicialmente solo servía para alojar repositorios, pero ahora se ha transformado en un sitio web que funciona como una **red social para programadores**. Además, GitHub incorpora inteligencia artificial para construir, escalar y entregar código seguro bajo **cuatro pilares fundamentales** dentro de **GitHub Enterprise**:  
 
-### 🔑 **Pilares de GitHub Enterprise**  
+### 🔑 **Pilares de GitHub Enterprise**
+
 1. **🤖 Inteligencia Artificial:**  
    Mejora la colaboración, la seguridad y la productividad en el desarrollo.  
 
@@ -686,15 +732,16 @@ GitHub ha evolucionado considerablemente: inicialmente solo servía para alojar 
 4. **🔒 Seguridad y Escalabilidad:**  
    Desde el principio, GitHub integra código seguro y adapta la plataforma para manejar un gran número de usuarios.  
 
-### 🚀 **Un espacio para contribuir**  
-GitHub permite contribuir de manera colaborativa al desarrollo de proyectos, como el **kernel de Linux**. Es una herramienta que fomenta la participación de la comunidad global en la construcción de software de alta calidad.  
+### 🚀 **Un espacio para contribuir**
 
+GitHub permite contribuir de manera colaborativa al desarrollo de proyectos, como el **kernel de Linux**. Es una herramienta que fomenta la participación de la comunidad global en la construcción de software de alta calidad.
 
 ## 🧑‍💻 Creación y Configuración de una Cuenta en GitHub  
 
 GitHub es una herramienta poderosa para alojar y colaborar en proyectos de desarrollo. Aquí te mostramos cómo crear y configurar tu cuenta de manera segura:  
 
-### ✨ **Creación de la cuenta**  
+### ✨ **Creación de la cuenta**
+
 1. 🌐 **Accede a GitHub:** Ve a [github.com](https://github.com) y haz clic en **"Sign up"**.  
 2. 📧 **Correo electrónico:** Ingresa tu correo electrónico y selecciona **"Continuar"**.  
 3. 🔒 **Contraseña:** Crea una contraseña segura y presiona **"Continuar"**.  
@@ -704,13 +751,15 @@ GitHub es una herramienta poderosa para alojar y colaborar en proyectos de desar
 7. 📝 **Cuestionario:** Completa las preguntas sobre tu perfil para personalizar tu experiencia.  
 8. 💸 **Selecciona el tipo de cuenta:** Te recomendamos la opción **gratuita** para comenzar.  
 
-### 🛠️ **Configuración del perfil**  
+### 🛠️ **Configuración del perfil**
+
 1. 🔧 Ve a **Settings** en tu perfil.  
 2. ✍️ Personaliza tu información, como nombre, biografía y enlaces.  
 3. 🔐 **Habilita la verificación en dos pasos** para mayor seguridad:  
    - **Nunca uses SMS** como método de autenticación.  
 
-### 📱 **Configuración de la autenticación en dos pasos**  
+### 📱 **Configuración de la autenticación en dos pasos**
+
 1. 📲 Descarga la aplicación de **GitHub** en tu teléfono o utiliza apps de autenticación como **Google Authenticator** o **Authy**.  
 2. 🔑 Ve a **"Settings" > "Password and Authentication"** en el sitio web de GitHub.  
 3. 📷 Haz clic en **"Habilitar autenticación en dos pasos"**.  
@@ -760,17 +809,22 @@ Aunque **Git** y **GitHub** son herramientas diferentes, se pueden vincular para
 
 ### 🌐 **Clonar el repositorio**  
 
-En el repositorio encontrarás una rama principal llamada **main**. Para trabajar localmente, puedes clonar el repositorio usando el botón **"Code"**, eligiendo entre tres opciones:  
-- 🌍 **HTTPS.**  
+En el repositorio encontrarás una rama principal llamada **main**. Para trabajar localmente, puedes clonar el repositorio usando el botón **"Code"**, eligiendo entre tres opciones:
+
+- 🌍 **HTTPS.**
 - 🔒 **SSH.**  
 - 💻 **GitHub CLI.**  
 
-#### **Clonar usando HTTPS:**  
-1. Copia la URL proporcionada, por ejemplo:  
+#### **Clonar usando HTTPS:**
+
+1. Copia la URL proporcionada, por ejemplo:
+
    ```plaintext
    https://github.com/JosueSay/GitDocumentation.git
-   ```  
-2. En la terminal, ejecuta el comando:  
+   ```
+
+2. En la terminal, ejecuta el comando:
+
    ```bash
    git clone <url>
    ```  
@@ -788,15 +842,18 @@ Para unificar tu entorno local de Git con un repositorio remoto en GitHub, puede
 git remote add origin <URL_DEL_REPOSITORIO_REMOTO>
 ```  
 
-#### Pasos:  
+#### Pasos
+
 1. **Agregar el repositorio remoto:**  
    Reemplaza `<URL_DEL_REPOSITORIO_REMOTO>` con la URL de tu repositorio en GitHub. Esto vincula tu repositorio local con el remoto.  
 
 2. **Verificar la conexión:**  
-   Usa el comando:  
+   Usa el comando:
+
    ```bash
    git remote -v
-   ```  
+   ```
+
    Esto mostrará las URLs configuradas para las conexiones remotas. Verifica que la URL listada coincida con la del repositorio remoto que quieres usar.  
 
 ## 🔐 Configuración de llaves SSH en GitHub  
@@ -809,28 +866,32 @@ Configurar una llave SSH en GitHub permite que una computadora específica se co
 
 ### 🐧 **Configuración en WSL - Linux**  
 
-#### Paso 1: **Intentar clonar con SSH**  
+#### Paso 1: **Intentar clonar con SSH**
+
 - Ve al repositorio anterior.  
 - Selecciona la opción **SSH** en el botón **Code**.  
 - Si no tienes una llave pública configurada, aparecerá un mensaje indicándolo.  
 
 ---
 
-#### Paso 2: **Generar una llave SSH**  
+#### Paso 2: **Generar una llave SSH**
+
 Ejecuta el siguiente comando en tu terminal para crear una nueva llave:  
 
 ```bash
 ssh-keygen -t ed25519 -C "tu_correo@gmail.com"
 ```  
 
-Durante el proceso:  
+Durante el proceso:
+
 1. 📝 **Nombre:** Te pedirá un nombre para la llave (puedes dejarlo en blanco para usar el predeterminado).  
 2. 🔑 **Contraseña:** Introduce y confirma una contraseña para la llave.  
 3. ✅ **Confirmación:** Una vez creada, recibirás un mensaje indicando su éxito.  
 
 ---
 
-#### Paso 3: **Activar el agente SSH**  
+#### Paso 3: **Activar el agente SSH**
+
 Para verificar y activar el agente SSH, usa este comando:  
 
 ```bash
@@ -847,7 +908,8 @@ Te pedirá la contraseña configurada anteriormente. Una vez ingresada, recibir�
 
 ---
 
-#### Paso 4: **Copiar la llave pública**  
+#### Paso 4: **Copiar la llave pública**
+
 Abre y copia el contenido de la llave pública:  
 
 ```bash
@@ -856,7 +918,8 @@ cat ~/.ssh/private_name_key.pub
 
 ---
 
-#### Paso 5: **Configurar la llave en GitHub**  
+#### Paso 5: **Configurar la llave en GitHub**
+
 1. 🌐 Ve a tu perfil en GitHub.  
 2. ⚙️ En **Settings**, busca la sección **SSH and GPG Keys**.  
 3. ➕ Agrega una nueva llave SSH:  
@@ -866,7 +929,8 @@ cat ~/.ssh/private_name_key.pub
 
 ---
 
-#### Paso 6: **Probar la conexión SSH**  
+#### Paso 6: **Probar la conexión SSH**
+
 En la terminal, ejecuta el siguiente comando para confirmar que la llave está vinculada correctamente:  
 
 ```bash
@@ -881,11 +945,11 @@ Hi JosueSay! You've successfully authenticated, but GitHub does not provide shel
 
 ---
 
-### 📝 **Notas importantes**  
+### 📝 **Notas importantes**
+
 - 🔑 Genera llaves SSH para cada computadora que utilices.  
 - 🚫 **Nunca compartas tus llaves privadas.**  
 - 🎉 Ahora puedes clonar repositorios usando SSH.  
-
 
 ## ⭐ Clone, Fork y Estrella en repositorios  
 
@@ -899,7 +963,8 @@ Estos son botones comunes que encontrarás en los repositorios de otras cuentas 
 
 Un **fork** crea una copia de un repositorio de otra cuenta en tu propia cuenta.  
 
-#### Características clave:  
+#### Características clave
+
 - Una vez copiado en tu cuenta, el repositorio "forkeado" **queda congelado**.  
 - Si el repositorio original recibe actualizaciones, **no se reflejarán automáticamente** en tu copia.  
 - Permite trabajar en un proyecto sin alterar el repositorio original.  
@@ -914,7 +979,8 @@ Esto lo diferencia de clonar un repositorio directamente, ya que el fork es una 
 
 La estrella es una forma de marcar tus repositorios favoritos en GitHub.  
 
-#### Cómo utilizarla:  
+#### Cómo utilizarla
+
 1. Haz clic en el botón **Star** en cualquier repositorio que quieras destacar.  
 2. Para ver todos tus repositorios marcados con estrella:  
    - Ve a tu perfil.  
@@ -1065,14 +1131,89 @@ Recuerda ser lo más detallado posible para facilitar la revisión del equipo.
 
 Luego de crear el PR, GitHub verificará si existen **conflictos** entre las ramas. El siguiente paso es esperar a que un miembro del equipo valide el PR. Si el código es aprobado, se **fusionará** con la rama **main**. Finalmente, se eliminará la rama de trabajo una vez que el PR haya sido completado y fusionado.
 
+## 🗂️ GitHub Projects
 
+**GitHub Projects** es una herramienta diseñada para la **planificación y seguimiento de trabajo** en GitHub, ideal para equipos que desean organizar tareas y mejorar su flujo de trabajo.
 
+### 🌟 Creación de Proyectos
 
+1. En tu perfil, selecciona la pestaña **Projects** en el encabezado.
+2. Crea un nuevo proyecto y elige entre distintas **plantillas** predefinidas como:
+   - **Kanban**: Perfecto para organizar tareas en columnas.
+   - **Team Planning**: Ideal para gestionar la planificación de equipos.
 
+Al usar estas plantillas, puedes definir detalles como:
 
+- **Tamaño de la tarea**
+- **Estimaciones de tiempo**
+- **Iteraciones**
+- **Asignaciones de equipo**
 
+Los proyectos también pueden vincularse a repositorios para un seguimiento más integrado.
 
+### 📝 Tareas y Vinculación con Issues
 
+- Las tareas dentro de un proyecto pueden comenzar como un **draft**, lo que significa que no están vinculadas a ningún repositorio.
+- Puedes convertir un draft en un **Issue** y vincularlo a un repositorio específico.
+- A partir de dicho Issue, es posible generar una rama con el nombre del Issue para trabajar en la actividad.
 
+### 🔗 Integración con Issues y Pull Requests
 
+Las tareas vinculadas a un proyecto aparecerán como **Issues** en el repositorio correspondiente. Una vez completadas, pueden convertirse en un **Pull Request (PR)** para revisión y fusión.
 
+Esta integración permite:
+
+- **Vincular múltiples proyectos** a un mismo Issue.
+- Supervisar actividades relacionadas en diversos proyectos de manera simultánea.
+
+### 🚀 Flujo de Trabajo Recomendado
+
+1. **Crear un Issue** desde el proyecto, asegurándote de vincularlo al repositorio adecuado.
+2. Abrir una rama basada en el Issue para trabajar en la solución.
+3. Resolver la actividad y realizar un PR para integrar los cambios en la rama principal.
+4. Monitorear el progreso desde el tablero del proyecto.
+
+## 🤖 Automatización y Gestión de Proyectos
+
+GitHub proporciona una herramienta poderosa para la colaboración en equipo a través de **Proyectos**. Con esta funcionalidad, puedes gestionar tareas, medir métricas y optimizar el flujo de trabajo de tus repositorios.
+
+### 🚀 Crear un Proyecto
+
+1. Ve a tu perfil de GitHub y selecciona la pestaña **Projects**.
+2. Haz clic en **"Nuevo proyecto"**.
+3. Configura los detalles del proyecto, como:
+   - **Nombre del proyecto**
+   - **Descripción**
+   - **Visibilidad** (público o privado)
+
+![Proyectos](../images/projects.png "Proyectos")
+
+### 🔗 Enlazar un Proyecto a un Repositorio
+
+Para integrar un proyecto con un repositorio específico:
+
+1. Dirígete al repositorio en GitHub.
+2. En el encabezado, selecciona la pestaña **Projects**.
+3. Enlaza el repositorio al proyecto creado previamente. Esto asegurará que las tareas estén alineadas con el repositorio correspondiente.
+
+![Proyectos](../images/projects2.png "Proyectos")
+
+### 🛠️ Funcionalidades del Proyecto
+
+Una vez configurado, dentro del proyecto puedes:
+
+- Crear y organizar **tableros de tareas**.
+- Acceder a **insights** para analizar métricas y el progreso.
+- Ajustar el flujo de trabajo para las diferentes actividades.
+
+### 📝 Automatización con Issues y Pull Requests
+
+Un uso práctico de los proyectos es la vinculación de **issues** con actividades específicas. Puedes automatizar el cierre de un issue cuando completes un pull request (PR) utilizando palabras clave.
+
+Por ejemplo, en la descripción de un PR, escribe:
+
+```plaintext
+Closes #<número del issue>
+```
+
+Esto asegura que el issue se cerrará automáticamente cuando el PR sea fusionado, manteniendo el proyecto actualizado sin esfuerzo adicional.
