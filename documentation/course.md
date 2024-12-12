@@ -1517,6 +1517,84 @@ Usa Markdown para agregar contenido único, como:
 
 - [Shields.io - Badges personalizados](https://shields.io/badges/static-badge)  
 - [Simple Icons - Iconos personalizados](https://simpleicons.org/)  
-- [GitHub ReadMe Stats - Tarjetas dinámicas](https://github.com/anuraghazra/github-readme-stats)  
+- [GitHub ReadMe Stats - Tarjetas dinámicas](https://github.com/anuraghazra/github-readme-stats)
+- [Profile Generator](https://gprm.itsvg.in/)
 
-> **Nota:** Mantén el contenido actualizado para reflejar tus proyectos más recientes y habilidades actuales. 😊
+## 📚 Wikis en GitHub
+
+Las **Wikis** de GitHub ofrecen un nivel más avanzado de documentación dentro de un repositorio. Permiten crear contenido más detallado que el `README.md` mediante la creación de varias páginas y secciones.
+
+---
+
+### 📝 Creación de Wikis
+
+1. **Acceder a la Wiki:**  
+   Para crear una Wiki, ve a la sección de "Wikis" en tu repositorio y comienza a crear páginas usando Markdown.
+
+2. **Estructura y organización:**  
+   Las wikis permiten dividir la documentación en varias páginas que pueden ser navegadas fácilmente.
+
+3. **Sidebar personalizado:**  
+   Puedes agregar un componente de navegación llamado `"_Sidebar"`. Esto crea una barra lateral para facilitar la navegación entre las diferentes páginas de la Wiki. GitHub reconoce este componente y lo usa para la navegación cíclica.  
+
+   Ejemplo de estructura:
+
+   ```markdown
+   ## Sidebar
+
+   * [Página Principal](./home.md)
+   * [Instrucciones de instalación](./installation.md)
+   * [Guía de uso](./usage.md)
+   ```
+
+---
+
+### 🔄 Clonar Wikis
+
+Las wikis no solo se pueden editar desde la interfaz de GitHub, sino que también pueden clonarse como un repositorio separado. Esto permite trabajar de manera más flexible y colaborar en su desarrollo.
+
+> **Nota:** La documentación base sobre Wikis se puede encontrar en este [enlace](https://platzi.com/home/clases/11059-gitgithub/71821-uso-de-wikis/).
+
+## 📝 GitHub Gist
+
+**GitHub Gist** es una herramienta que permite compartir fragmentos de código de manera sencilla. Es útil para colaborar, discutir y probar pequeñas porciones de código sin la necesidad de crear ramas o implementar cambios grandes.
+
+### 🚀 ¿Cómo usar GitHub Gist?
+
+1. **Accede a Gist GitHub:**  
+   Dirígete a la página de [Gist GitHub](https://gist.github.com/ "Gist GitHub").
+
+2. **Crea un Gist:**
+   Llena el formulario con la siguiente información:
+   - **Descripción**: Agrega una breve descripción del fragmento de código.
+   - **Extensión**: Especifica el tipo de archivo (por ejemplo, `.js`, `.py`, `.txt`).
+   - **Código**: Pega el código que deseas compartir.
+
+3. **Compartir y Colaborar:**  
+   Una vez creado, obtendrás una URL única del Gist. Puedes compartir esta URL con otras personas para que puedan ver, comentar o responder a tu Gist y seguir la conversación.
+
+## 🌐 GitHub Pages
+
+**GitHub Pages** es una herramienta que permite hospedar sitios web directamente desde un repositorio de GitHub, ya sea para proyectos estáticos o dinámicos.
+
+### 🚀 ¿Cómo usar GitHub Pages?
+
+1. **Accede a Gist GitHub:**  
+   Dirígete a la página de [GitHub Pages](https://pages.github.com/ "GitHub Pages") y sigue el tutorial.
+
+2. **Crea un repositorio**:  
+   Crea un repositorio con el formato `usuario.github.io`.
+
+3. **Prepara los archivos del sitio**:  
+   Coloca los archivos de tu sitio web en una carpeta llamada `docs`. Esta carpeta será utilizada para almacenar el contenido del sitio.
+
+4. **Configura GitHub Pages**:  
+   - Ve a la pestaña `Settings` de tu repositorio.
+   - En la sección **Pages**, selecciona la rama que contiene los archivos del proyecto, usualmente `main`, y selecciona la carpeta `docs` como la fuente.
+   - Guarda los cambios.
+
+5. **Accede al sitio**:  
+   Después de guardar la configuración, podrás acceder a tu sitio web en una URL proporcionada por GitHub. Esta URL será algo como `https://usuario.github.io`.
+
+6. **Personaliza el dominio (opcional)**:  
+   Si deseas usar un dominio personalizado, puedes configurarlo para que la URL de tu sitio web sea más amigable y personalizada.
