@@ -1790,7 +1790,7 @@ Los **tokens de acceso personal** (PAT, por sus siglas en inglés) en GitHub son
 
 #### Clonar un Repositorio con Token
 
-Al clonar o acceder a un repositorio con un token:
+Al clonar o acceder a un repositorio con un token se pedirán credenciales:
 
 1. Ingresa tu **username** (nombre de usuario en GitHub).
 2. Como **contraseña**, usa el **personal access token** en lugar de la contraseña de tu cuenta.
@@ -1865,3 +1865,91 @@ updates:
 - **Automatización:** Actualiza paquetes sin intervención manual.
 - **Compatibilidad Garantizada:** Verifica las versiones para minimizar conflictos.
 - **Fácil Integración:** Compatible con múltiples gestores de paquetes (npm, pip, maven, etc.).
+
+## 🔒 Mantenimiento de Repositorios Seguros
+
+Mantener un repositorio seguro es esencial para proteger datos sensibles, evitar vulnerabilidades y garantizar buenas prácticas en el desarrollo. A continuación, se detallan las estrategias para lograrlo:
+
+### 🌐 Cambio de Visibilidad del Repositorio
+
+Puedes cambiar la visibilidad de un repositorio de público a privado desde:
+
+1. **Settings > Danger Zone**.
+2. Selecciona la primera opción para modificar la visibilidad.
+
+Esto garantiza que el acceso al repositorio sea limitado y más seguro.
+
+### 📁 Uso de `.gitignore`
+
+El archivo `.gitignore` permite excluir ciertos archivos o carpetas del control de versiones.
+
+- **Definición:** Ubícalo en la raíz del proyecto y define patrones de exclusión.
+  Ejemplo:
+
+  ```bash
+  # Ignorar archivos con extensión .sln
+  *.sln
+
+  # Ignorar la carpeta bin/
+  bin/
+  ```
+
+- **Plantillas Predefinidas:** Para facilitar su creación, puedes consultar:
+  - [GitHub GitIgnore](https://github.com/github/gitignore)
+  - [Plantillas para GitIgnore](https://www.toptal.com/developers/gitignore)
+
+## 🛡️ Gestión de Datos Sensibles y Políticas de Seguridad
+
+### 🔍 Code Scanning
+
+GitHub permite analizar tu código en busca de vulnerabilidades mediante la herramienta **CodeQL Analysis**:
+
+1. Ve a **Settings > Code security**.
+2. En **Code Scanning**, selecciona **Set Up** en Tools.
+3. Usa la configuración **default** para analizar el código y ajustar parámetros.
+
+![Code Scanning](../images/code_scanning.png "Code Scanning")
+
+### 🔑 Secret Scanning y Protección de Commits
+
+Habilita la opción de **Secrets Scanning** para recibir alertas sobre:
+
+- Llaves API.
+- Tokens.
+- Secretos filtrados en el código.
+
+Activa también **Push Protection** para prevenir la inclusión de secretos en commits futuros.
+
+![Secret Scanning](../images/secret_scanning.png "Secret Scanning")
+
+### 🟡 Flujos de Seguridad Activos
+
+Cada vez que subes cambios, GitHub ejecuta flujos de análisis. Esto se identifica con un indicador amarillo en el encabezado del repositorio. En el apartado de **Security**, se listan las vulnerabilidades detectadas en tres categorías:
+
+1. **Dependabot**: Alertas relacionadas con dependencias desactualizadas o vulnerables.
+2. **Secret Scanning**: Detección de secretos o llaves filtradas.
+3. **Code Scanning**: Análisis estático del código para detectar vulnerabilidades.
+
+![Security](../images/security.png "Security")
+
+### 🛠️ Resolución de Vulnerabilidades
+
+Cuando GitHub detecta problemas de seguridad, proporciona información detallada y pasos para solucionarlos. Algunas recomendaciones incluyen:
+
+1. **Regenerar Llaves o Tokens:**
+   - Elimina el token comprometido y genera uno nuevo.
+   - Eliminar solo la línea del código no soluciona el problema, ya que permanece en el historial de Git.
+
+2. **Modificar el Código:**
+   - Ajusta el código para evitar futuras filtraciones.
+
+![Security Breach](../images/security2.png "Security Breach")
+
+> **Nota:** Aunque GitHub identifica muchas llaves y secretos, no es infalible. Usa un `.gitignore` para evitar exponer archivos sensibles y nombra las claves de forma que no sean fácilmente reconocibles.
+
+### ⚡ Recomendaciones Finales
+
+1. **Habilita todas las herramientas de seguridad disponibles en GitHub.**
+2. **Mantén un `.gitignore` actualizado y bien configurado.**
+3. **Evita exponer datos sensibles en commits.** Usa secretos gestionados y variables de entorno.
+4. **Revisa periódicamente las alertas de seguridad y sigue las recomendaciones.**
