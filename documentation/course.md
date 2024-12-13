@@ -1811,26 +1811,57 @@ Al clonar o acceder a un repositorio con un token:
 | **Expiración**                   | Fecha de expiración obligatoria.          | Puede no tener expiración.|
 | **Seguridad Adicional**          | Mayor control y restricciones.            | Menor nivel de detalle.   |
 
-## Gestión de Dependencias con Dependabot
+## 🛠️ Gestión de Dependencias con Dependabot
 
-En los proyectos utilizaremos paquetes de terceros y para cubrir brechas de seguirdad de esos paquetes como de python o npm utilizaremos dependabot. Para habilitarlo podemos ir a Security/Dependabot y nos iremos a la leyenda que dice Sttings/Code security y en el aparatado de "Dependabot" vamos a habilitar varios items
+Dependabot es una herramienta de GitHub que ayuda a mantener tus proyectos actualizados y seguros al gestionar las dependencias. Es especialmente útil para detectar y solucionar brechas de seguridad en paquetes de terceros, como los utilizados en **Python** o **npm**.
+
+### 🔒 Habilitación de Dependabot
+
+1. Ve a **Security > Dependabot** en tu repositorio.
+2. Dirígete a **Settings > Code security and analysis**.
+3. Habilita las opciones disponibles en el apartado de **Dependabot**.
 
 ![Dependabot](../images/dependabot.png "Dependabot")
 
-Al habilitar una ultima dependencia nos creará un archivo yml llamado dependabot en la carpeta .github y dentro podemos definir el periodo de revisión como "Weekly", "daily", etc.
+### 📄 Configuración del Archivo `dependabot.yml`
 
-Uno de las cosas a editar se colocan
-```bash
-package-ecosystem: "ecosistema del paquete como npm, pip, etc"
-directory: "ubicación de los manifiestos del paquete"
+Cuando habilitas Dependabot, GitHub genera automáticamente un archivo llamado `dependabot.yml` en la carpeta `.github`. Este archivo permite definir las configuraciones del monitoreo de dependencias, como el intervalo de revisión.
+
+#### Ejemplo de Configuración
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"  # Ecosistema del paquete (ej., npm, pip, maven, etc.)
+    directory: "/"           # Ubicación del archivo manifiesto
+    schedule:
+      interval: "weekly"     # Frecuencia: daily, weekly, o monthly
 ```
 
-para probar la librerias se utilizará un requrirements.txt con esta dependencia:
+#### Parámetros Clave
 
-```bash
-requests==2.32.0
-```
+- **`package-ecosystem`**: Especifica el gestor de paquetes (e.g., `npm`, `pip`, `maven`).
+- **`directory`**: Ubicación de los archivos manifiesto de dependencias.
+- **`schedule`**: Define el intervalo de revisiones (`daily`, `weekly`, `monthly`).
 
+### 🚨 Cómo Funciona Dependabot
 
+1. **Detección de Problemas**: Dependabot monitorea las dependencias declaradas en tu proyecto. Si detecta vulnerabilidades o paquetes desactualizados, genera una alerta en el apartado de **Security**.
 
+2. **Pull Request Automatizado**: Dependabot crea un Pull Request para actualizar la dependencia afectada. Este PR incluye:
+   - Detalles sobre el error.
+   - Comparación entre versiones.
+   - Información sobre compatibilidad y mejoras.
 
+3. **Revisión y Merge**:
+   - Revisa los cambios propuestos.
+   - Realiza el merge del Pull Request si todo está en orden.
+
+4. **Limpieza Automática**: Una vez aplicado el cambio, Dependabot elimina automáticamente la rama creada.
+
+### ⚡ Beneficios de Usar Dependabot
+
+- **Seguridad Mejorada:** Monitorea vulnerabilidades conocidas en dependencias.
+- **Automatización:** Actualiza paquetes sin intervención manual.
+- **Compatibilidad Garantizada:** Verifica las versiones para minimizar conflictos.
+- **Fácil Integración:** Compatible con múltiples gestores de paquetes (npm, pip, maven, etc.).
