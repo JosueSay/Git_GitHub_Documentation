@@ -1710,3 +1710,34 @@ Si el entorno compartido es un Codespace:
 - **Sincronización de Cambios:** Todos los participantes trabajan sobre el mismo entorno y código, reduciendo errores.
 - **Registro de Autores:** Los commits reflejan el trabajo colaborativo automáticamente.
 - **Trabajo en la Nube:** Dado que es una máquina virtual los colaboradores no tienen acceso al sistema sino solo al codespace compartido.
+
+## ✏️ GitHub Dev Editor
+
+GitHub ofrece una herramienta integrada para editar código directamente desde la web: el **GitHub Dev Editor**, una versión ligera y funcional que facilita realizar ediciones rápidas en los repositorios sin necesidad de configurar un entorno local.
+
+### 🚀 Cómo Acceder al GitHub Dev Editor
+
+1. Abre un repositorio en GitHub.
+2. Presiona la tecla **"."** (punto) o selecciona la opción correspondiente en el menú. Esto abrirá el editor integrado.
+3. El editor se asemeja a **Visual Studio Code**, pero está optimizado para ediciones rápidas desde la web.
+
+![GitHub Dev Editor](../images/dev_editor.png "GitHub Dev Editor")
+
+### 🌟 Características del Dev Editor
+
+- **Ediciones Directas:** Permite editar archivos en texto plano directamente en el navegador.
+- **Navegación Sencilla:** Puedes regresar al repositorio utilizando el menú de tres líneas horizontales y seleccionando la opción para volver al repositorio.
+- **Sin Configuración:** No requiere instalación ni configuración previa.
+
+### 🛠️ Diferencias entre GitHub Dev Editor y Codespaces
+
+| Característica             | GitHub Dev Editor                     | Codespaces                          |
+|----------------------------|----------------------------------------|-------------------------------------|
+| **Funcionalidad**          | Editor de texto para cambios rápidos y gratis. | Entorno de desarrollo completo con costo adicional si sobrepasan las horas gratis.    |
+| **Acceso a Terminal**      | No disponible.                        | Incluye terminal integrada.        |
+| **Uso de Recursos**        | Ligero, no requiere infraestructura.  | Utiliza una máquina virtual.       |
+| **Ideal para**             | Ediciones simples y rápidas.          | Desarrollo avanzado y colaborativo.|
+
+### 📌 Nota Importante
+
+Aunque el Dev Editor tiene una apariencia similar a **VS Code**, **no es un Codespace**. Si intentas usar funcionalidades avanzadas, como la terminal, GitHub te pedirá crear un Codespace para continuar.
