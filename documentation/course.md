@@ -2157,4 +2157,28 @@ GitHub CLI es muy útil en escenarios de automatización. Por ejemplo, puedes us
 
 Otro escenario común es utilizar el botón verde de "Code" en el repositorio de GitHub, donde se ofrece una opción de **CLI** para clonar el repositorio directamente usando GitHub CLI.
 
-##
+## Pull Requests y Ramas en GitHub
+
+Usando un pull_request_template.md
+
+Usando los archivos del repositorio [git-github](https://github.com/platzi/git-github) se copian los archivos de API_PYTHON en la carpeta practice/API
+
+Luego se instalan las dependencias con pip install -r requirements.txt
+
+Luego el comando uvicorn app:app --reload
+
+Tendría que haber un mensaje:
+
+```bash
+(.venv) PS D:\GitHub Repositorios\Aprendizaje\Git & GitHub\practice\API> uvicorn app:app --reload
+INFO:     Will watch for changes in these directories: ['D:\\GitHub Repositorios\\Aprendizaje\\Git & GitHub\\practice\\API']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [776] using WatchFiles
+INFO:     Started server process [32516]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57343 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57369 - "GET /familia HTTP/1.1" 200 OK
+```
+
+Visitando la url podemos colocar el siguiente enlace "http://127.0.0.1:8000/familia", "http://127.0.0.1:8000/superheroesDC" y explorar los datos obtenidos y simulamos la tarea por hacer de un api completada suspendemos la ejecución de la api.
