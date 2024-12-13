@@ -1741,3 +1741,72 @@ GitHub ofrece una herramienta integrada para editar código directamente desde l
 ### 📌 Nota Importante
 
 Aunque el Dev Editor tiene una apariencia similar a **VS Code**, **no es un Codespace**. Si intentas usar funcionalidades avanzadas, como la terminal, GitHub te pedirá crear un Codespace para continuar.
+
+## 🔐 GitHub Tokens
+
+Los **tokens de acceso personal** (PAT, por sus siglas en inglés) en GitHub son claves que permiten interactuar con repositorios de forma segura, especialmente cuando se trabaja con repositorios privados o se automatizan procesos. Estos tokens son una alternativa más segura que compartir contraseñas.
+
+### 🚩 Características Principales
+
+1. **Seguridad:** Permiten acceso sin compartir contraseñas.
+2. **Privilegios Ajustables:** Puedes definir qué acciones están permitidas con el token.
+3. **Expiración:** Pueden tener una fecha de vencimiento para mayor control y seguridad.
+4. **Tipos:**
+   - **Fine-grained Tokens:** Mayor granularidad en permisos y control.
+   - **Classic Tokens:** Opciones más generales y menos detalladas.
+
+### 🚀 Creación de Tokens
+
+1. Ve a **Settings > Developer Settings > Personal Access Tokens**.
+2. Selecciona el tipo de token que deseas crear:
+   - **Fine-grained Tokens** (más detallados).
+   - **Classic Tokens** (opciones básicas).
+
+#### Creación de un Token Clásico
+
+1. Llena el formulario con:
+   - **Nombre del token.**
+   - **Fecha de expiración.**
+   - **Permisos requeridos.**
+2. Genera el token y copia el valor proporcionado.
+
+> ⚠️ **Importante:** El token solo se muestra una vez. Si lo pierdes, deberás eliminarlo y crear uno nuevo.
+
+![Token](../images/token.png "Token clásico")
+![Formulario de Token](../images/token2.png "Formulario de Token")
+![Token Generado](../images/token3.png "Token Generado")
+
+#### Creación de un Fine-grained Token
+
+1. Llena el formulario con:
+   - **Nombre del token.**
+   - **Repositorios específicos o globales a los que aplica.**
+   - **Permisos ajustados por repositorio.**
+   - **Fecha de expiración (no permite opciones de "sin expiración").**
+
+![Fine-grained Token](../images/token4.png "Fine-grained Token")
+
+### 🖥️ Uso de Tokens
+
+#### Clonar un Repositorio con Token
+
+Al clonar o acceder a un repositorio con un token:
+
+1. Ingresa tu **username** (nombre de usuario en GitHub).
+2. Como **contraseña**, usa el **personal access token** en lugar de la contraseña de tu cuenta.
+
+#### Casos de Uso
+
+- Acceso desde otros dispositivos o equipos.
+- Automatización con GitHub Actions o scripts personalizados.
+- Creación de flujos de trabajo para CI/CD.
+- Acceso seguro a API de GitHub.
+
+### 📌 Diferencias entre Tokens
+
+| Característica                   | Fine-grained Tokens                      | Classic Tokens            |
+|----------------------------------|------------------------------------------|---------------------------|
+| **Granularidad de Permisos**     | Permisos ajustados por repositorio.       | Permisos generales.       |
+| **Aplicación por Repositorio**   | Repositorios específicos o todos.         | Aplica a todos los repositorios. |
+| **Expiración**                   | Fecha de expiración obligatoria.          | Puede no tener expiración.|
+| **Seguridad Adicional**          | Mayor control y restricciones.            | Menor nivel de detalle.   |
