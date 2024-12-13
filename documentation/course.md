@@ -1953,3 +1953,42 @@ Cuando GitHub detecta problemas de seguridad, proporciona información detallada
 2. **Mantén un `.gitignore` actualizado y bien configurado.**
 3. **Evita exponer datos sensibles en commits.** Usa secretos gestionados y variables de entorno.
 4. **Revisa periódicamente las alertas de seguridad y sigue las recomendaciones.**
+
+## 🏢 Administración de Organización en GitHub
+
+GitHub permite agrupar varios proyectos bajo una **organización**, ideal para equipos, empresas o comunidades. A continuación, se describen los pasos para crear y administrar una organización.
+
+### 📋 Creación de una Organización
+
+1. Dirígete al menú **+** en la esquina superior derecha y selecciona **Nueva organización**.
+2. Escoge entre los diferentes planes disponibles según las necesidades del equipo.
+
+   ![Organization](../images/organization.png "Organization")
+
+3. Completa el formulario de registro para configurar la organización.
+
+   ![Formulario de Organización](../images/organization2.png "Organization")
+
+4. Una vez creada, puedes:
+   - Invitar colaboradores.
+   - Configurar permisos.
+   - Editar la cuenta y otros ajustes.
+
+   ![Invitar Colaboradores](../images/organization3.png "Organization")
+
+### 🔧 Configuración y Personalización
+
+1. **Permisos de Miembros:**
+   - Define los roles y permisos para cada miembro de la organización.
+   - Ajusta configuraciones de acceso según sea necesario para garantizar seguridad y productividad.
+
+2. **Portada de la Organización:**
+   - Al igual que los perfiles personales, puedes crear un repositorio llamado `README.md` en la organización para personalizar su portada.
+
+### 👥 Gestión de Miembros
+
+1. **Ver Organizaciones Asociadas:**
+   - Puedes observar todas las organizaciones a las que perteneces desde tu perfil.
+
+2. **Salir de una Organización:**
+   - Si ya no deseas pertenecer a una organización, puedes retirarte fácilmente desde la configuración de tu cuenta.
