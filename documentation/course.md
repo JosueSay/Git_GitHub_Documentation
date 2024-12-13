@@ -1673,3 +1673,40 @@ Puedes abrir un Codespace en la aplicación de escritorio de **Visual Studio Cod
 - Configuración rápida de entornos para múltiples lenguajes.
 - Elimina la necesidad de instalar herramientas localmente.
 - Acelera la colaboración en equipo con entornos consistentes.  
+
+## 🤝 Pair Programming con VS Code y Codespaces
+
+**Pair Programming** (programación en pareja) se puede realizar fácilmente utilizando la extensión **Live Share** en Visual Studio Code, incluso dentro de un Codespace. Esta herramienta permite que varios desarrolladores trabajen simultáneamente en el mismo código en tiempo real, con los siguientes beneficios:
+
+### 🌐 Configuración y Uso de Live Share
+
+1. **Instalar Live Share:**
+   - Descarga la extensión **Live Share** desde el marketplace de Visual Studio Code y agregarla al devcontainer.
+
+2. **Iniciar una Sesión:**
+   - En VS Code, inicia Live Share y genera un enlace para compartir.
+   - Los colaboradores podrán unirse seleccionando entre continuar en **Visual Studio Code** o en un navegador web.
+
+3. **Ediciones en Tiempo Real:**
+   - Una vez conectados, los participantes podrán ver y editar el código en tiempo real.
+   - Los cambios realizados por los colaboradores se reflejarán directamente en el entorno compartido.
+
+### 📋 Commits Colaborativos
+
+Cuando se realizan cambios en el entorno compartido:
+
+- Los commits generados incluirán un mensaje de **coautor**, asegurando que quede registrada la contribución de todos los desarrolladores involucrados.
+
+### 🛠️ Requisitos en un Codespace
+
+Si el entorno compartido es un Codespace:
+
+- Asegúrate de que las extensiones necesarias estén instaladas en el Codespace para que todos puedan trabajar sin inconvenientes.
+- Como anfitrión, puedes detener la sesión de **Live Share** en cualquier momento para finalizar la colaboración.
+
+### 🚀 Ventajas de Pair Programming con Live Share
+
+- **Colaboración en Tiempo Real:** Ideal para resolver problemas complejos y compartir conocimientos.
+- **Sincronización de Cambios:** Todos los participantes trabajan sobre el mismo entorno y código, reduciendo errores.
+- **Registro de Autores:** Los commits reflejan el trabajo colaborativo automáticamente.
+- **Trabajo en la Nube:** Dado que es una máquina virtual los colaboradores no tienen acceso al sistema sino solo al codespace compartido.
