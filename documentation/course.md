@@ -1598,3 +1598,78 @@ Las wikis no solo se pueden editar desde la interfaz de GitHub, sino que tambié
 
 6. **Personaliza el dominio (opcional)**:  
    Si deseas usar un dominio personalizado, puedes configurarlo para que la URL de tu sitio web sea más amigable y personalizada.
+
+## 🌐 GitHub Codespaces
+
+**GitHub Codespaces** ofrece entornos de desarrollo en la nube, permitiendo trabajar en diferentes plataformas como si se tratara de un entorno local, eliminando la necesidad de configuraciones complejas.
+
+### ✨ Creación de un Codespace
+
+1. En GitHub, haz clic en el botón **+** en la parte superior derecha y selecciona **New Codespace**.
+2. Completa el formulario especificando:
+   - **Repositorio:** Proyecto asociado al codespace.
+   - **Región:** Ubicación del servidor para optimizar la latencia.
+   - **Rama:** Rama del repositorio a trabajar.
+   - **Machine Type:** Especifica la cantidad de núcleos, almacenamiento y memoria RAM del entorno.
+
+![Codespace](../images/codespace.png "Formulario de creación de Codespace")  
+
+Al completar el formulario, se abrirá un editor **Visual Studio Code** en la nube. Este entorno incluye herramientas preconfiguradas para trabajar con distintos lenguajes y frameworks sin necesidad de configuraciones adicionales.  
+
+![Codespace](../images/codespace2.png "VS Code en la nube")
+
+### 🛠️ Gestión de Codespaces
+
+Desde el menú lateral izquierdo en el Codespace:
+
+1. Haz clic en el ícono de tres líneas (**hamburger menu**).
+2. Selecciona **My Codespaces** para acceder a una página donde puedes:
+   - Administrar tus Codespaces activos.
+   - Crear nuevos Codespaces basados en plantillas predefinidas.  
+
+![Codespace](../images/codespace3.png "Gestión de Codespaces")  
+
+⚠️ **Nota:** GitHub ofrece un límite de horas gratuitas para cuentas sin suscripción. Para optimizar el uso:
+
+- Haz commit de tus cambios.
+- Elimina el Codespace después de finalizar tu trabajo.
+
+![Codespace](../images/codespace4.png "Eliminar Codespace")
+
+## 🔧 Configuración Avanzada de GitHub Codespaces
+
+### 🌟 Uso de Plantillas en Codespaces
+
+Los Codespaces pueden configurarse con plantillas para entornos personalizados. En lugar de vincular un repositorio específico, puedes crear un entorno limpio, como para trabajar con **Django**, utilizando configuraciones predefinidas.
+
+#### 📁 `devcontainer.json`
+
+El archivo `devcontainer.json`, ubicado en la carpeta **.devcontainer**, almacena las configuraciones necesarias para el entorno, como:
+
+- **Extensiones** a instalar.
+- Configuraciones específicas del contenedor.  
+
+Este archivo permite que el Codespace esté listo para usar inmediatamente tras su creación.
+
+---
+
+### 💻 Ejecución Local en Visual Studio Code
+
+Puedes abrir un Codespace en la aplicación de escritorio de **Visual Studio Code**:
+
+1. Al abrir un Codespace por primera vez, se te pedirá instalar una extensión específica.
+2. Git debe estar configurado en tu máquina local para trabajar con el repositorio.
+
+⚠️ **Problema común:** Si el Codespace en la web utiliza el mismo puerto que tu entorno local, puede causar conflictos.  
+**Solución:**
+
+- Detén la ejecución del Codespace en el navegador.
+- Reinicia la ejecución en Visual Studio Code local.
+
+---
+
+### 🚀 Ventajas de GitHub Codespaces
+
+- Configuración rápida de entornos para múltiples lenguajes.
+- Elimina la necesidad de instalar herramientas localmente.
+- Acelera la colaboración en equipo con entornos consistentes.  
