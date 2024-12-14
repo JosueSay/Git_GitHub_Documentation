@@ -235,6 +235,18 @@ $$
 E = mc^2
 $$
 
+## 🔤 Nomenclatura Especial
+
+Se pueden simular teclas colocando el contenido entre las etiquetas:
+
+```markdown
+<kbd> A </kbd>
+```
+
+Presiona la tecla <kbd>A</kbd>.
+
+> Nota: Algunos errores se pueden motir si se usa la extensión MarkdownLint en VS-CODE colocando un archivo .markdonlint.json y colocando la reglas a omitir.
+
 ## 📚 Recursos adicionales
 
 Para más información, consulta la [Documentación Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet "Documentación Markdown").
