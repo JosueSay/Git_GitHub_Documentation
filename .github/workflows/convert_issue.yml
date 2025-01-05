@@ -1,0 +1,17 @@
+name: Move tasks on project board
+
+on:
+  issues:
+    types: [labeled, unlabeled]
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move issue to "In Progress"
+        if: github.event.label.name == 'in-progress'
+        uses: actions/move-project-card@v1
+        with:
+          project: "Mi Proyecto Individual"
+          column: "In Progress"
+          token: ${{ secrets.GITHUB_TOKEN }}
