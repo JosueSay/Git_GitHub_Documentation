@@ -12,40 +12,36 @@ jobs:
       - name: Move card to In Progress
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.TOKEN }}
           script: |
             const columnName = "In Progress";
             const projectName = "Mi Proyecto Individual";
 
-            // Obtener proyectos del repositorio
             const projects = await github.projects.listForRepo({
               owner: context.repo.owner,
-              repo: context.repo.repo
+              repo: context.repo.repo,
             });
 
-            // Encontrar el proyecto
             const project = projects.data.find(p => p.name === projectName);
             if (!project) {
               throw new Error(`No se encontró el proyecto: ${projectName}`);
             }
 
-            // Obtener columnas del proyecto
             const columns = await github.projects.listColumns({
-              project_id: project.id
+              project_id: project.id,
             });
 
-            // Encontrar la columna "In Progress"
             const column = columns.data.find(c => c.name === columnName);
             if (!column) {
               throw new Error(`No se encontró la columna: ${columnName}`);
             }
 
-            // Mover la tarjeta del issue a "In Progress"
             const cards = await github.projects.listCards({
-              column_id: column.id
+              column_id: column.id,
             });
 
             const issueCard = cards.data.find(card =>
-              card.content_url && card.content_url.includes(context.payload.issue.id)
+              card.content_url && card.content_url.includes(context.payload.issue.id),
             );
 
             if (!issueCard) {
@@ -54,5 +50,5 @@ jobs:
 
             await github.projects.moveCard({
               card_id: issueCard.id,
-              position: "top"
+              position: "top",
             });
