@@ -1,17 +1,58 @@
-name: Move tasks on project board
+name: Move to In Progress
 
 on:
   issues:
-    types: [labeled, unlabeled]
+    types:
+      - assigned
 
 jobs:
-  move:
+  move_to_in_progress:
     runs-on: ubuntu-latest
     steps:
-      - name: Move issue to "In Progress"
-        if: github.event.label.name == 'in-progress'
-        uses: actions/move-project-card@v1
+      - name: Move card to In Progress
+        uses: actions/github-script@v6
         with:
-          project: "Mi Proyecto Individual"
-          column: "In Progress"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const columnName = "In Progress";
+            const projectName = "Mi Proyecto Individual";
+
+            // Obtener proyectos del repositorio
+            const projects = await github.projects.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            // Encontrar el proyecto
+            const project = projects.data.find(p => p.name === projectName);
+            if (!project) {
+              throw new Error(`No se encontró el proyecto: ${projectName}`);
+            }
+
+            // Obtener columnas del proyecto
+            const columns = await github.projects.listColumns({
+              project_id: project.id
+            });
+
+            // Encontrar la columna "In Progress"
+            const column = columns.data.find(c => c.name === columnName);
+            if (!column) {
+              throw new Error(`No se encontró la columna: ${columnName}`);
+            }
+
+            // Mover la tarjeta del issue a "In Progress"
+            const cards = await github.projects.listCards({
+              column_id: column.id
+            });
+
+            const issueCard = cards.data.find(card =>
+              card.content_url && card.content_url.includes(context.payload.issue.id)
+            );
+
+            if (!issueCard) {
+              throw new Error(`No se encontró la tarjeta para el issue: ${context.payload.issue.id}`);
+            }
+
+            await github.projects.moveCard({
+              card_id: issueCard.id,
+              position: "top"
+            });
